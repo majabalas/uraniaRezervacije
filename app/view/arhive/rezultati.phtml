@@ -1,0 +1,46 @@
+<div class="grid-x">
+    <?php foreach($poruka as $arhiva){
+        if($arhiva->aktivan==true)
+    { ?>
+    
+    <div class="cell large-6">
+        <div class="success callout dogadaji">
+        
+            <img src="<?php 
+      
+            $putanja = file_exists(App::config("path") . "public/css/arhive/" . $arhiva->sifra . ".png") 
+            ?  App::config("url") . "public/css/arhive/" . $arhiva->sifra . ".png" 
+            : App::config("url") . "public/css/arhive/dogadaj.png";
+
+            echo $putanja ?>" alt="" />
+            <br />
+            <a href="<?php echo App::config("url")?>sjedalo/index/<?php echo $arhiva->sifra ?>">
+            <?php echo $arhiva->naziv?>
+            <br />
+            <?php echo $arhiva->izvodac?>
+            <br />
+            <?php echo $arhiva->termin?>
+            </a>
+            <hr />
+            <a href="<?php echo App::config("url") ?>sjedalo/index/<?php echo $arhiva->sifra ?>" class="alert button expanded">
+            Rezervacije
+        </a>
+        <a href="<?php echo App::config("url") ?>arhiva/vrati/<?php echo $arhiva->sifra ?>" class="alert button expanded">
+            Prebaci u aktualne događaje
+        </a>
+            
+        </div>
+    </div>
+
+    <?php } 
+} ?>
+</div>
+<nav aria-label="Pagination">
+    <ul class="pagination text-center">
+        <li class="pagination-previous"><a
+                href="<?php echo App::config("url") ?>arhiva/index/<?php echo $prethodna ?>"
+                aria-label="Next page">Prethodna <span class="show-for-sr">page</span></a></li>
+        <li class="pagination-next"><a href="<?php echo App::config("url") ?>arhiva/index/<?php echo $sljedeca ?>"
+                aria-label="Next page">Sljedeća <span class="show-for-sr">page</span></a></li>
+    </ul>
+</nav>

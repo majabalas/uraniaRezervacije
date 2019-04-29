@@ -1,0 +1,65 @@
+<div class="grid-x">
+    <div class="large-18 medium-18 small-18 columns">
+        <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+            <div class="title-bar-title">Izbornik</div>
+        </div>
+
+        <div class="top-bar" id="example-menu">
+            <div class="top-bar-left" style="text-align:center">
+                <ul class="dropdown menu" data-dropdown-menu>
+
+                    <li>
+                        <a href="<?php echo App::config("url")."index" ?>">Početna</a>
+
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."onama" ?>">O nama</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."upute" ?>">Upute</a>
+                    </li>
+
+                    <?php if(Session::getInstance()->isLogiran()): ?>
+
+                    <li>
+                        <a href="<?php echo App::config("url")."dogadaj/index" ?>">Događaji</a>
+
+                    </li>
+                    
+                    <li>
+                        <a href="<?php echo App::config("url")."gledatelj/index" ?>">Gledatelji</a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo App::config("url")."administrator/index" ?>">Administratori</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo App::config("url")."arhiva/index" ?>">Arhiva događaja</a>
+                    </li>
+
+                    
+
+
+                    <?php endif; ?>
+
+                </ul>
+            </div>
+            <div class="top-bar-right" style="text-align:center">
+                <ul class="menu" id="login">
+                    <li>
+
+                        <?php if(Session::getInstance()->isLogiran()): ?>
+                        <a href="<?php echo App::config("url") ?>admin/odjava">Odjava
+                            <?php echo Session::getInstance()->getUser()->korisnickoIme ?>
+                        </a>
+                        <?php else:?>
+                        <a href="<?php echo App::config("url") ?>admin/prijava">Prijava</a>
+                        <?php endif;?>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+ <?php
+ $dogadaj = $sjedala->dogadaj;
+ ?>
+ 
+ <div class="grid-x">
+
+
+ <?php foreach ($sjedala as $key => $value) { ?>
+   <?php if(strlen($key)>7){?>
+    <div class="cell large-1 medium-1 small-1" style="visibility: hidden">
+   </div>
+   <?php }elseif($key=="dogadaj" or $key=="sifra"){?> 
+    <div class="cell large-1 medium-1 small-1" style="display: none">
+   </div>
+   <?php }else{?>
+<div class="cell large-1 medium-1 small-1">
+
+<form class="log-in-form" method="post"
+    action="<?php echo App::config("url") ?>sjedalo/prepareEditSjedalo/">
+
+
+ 
+<label>
+    <input type="hidden" name="sjedalo" value="<?php echo $key ?>" />
+</label>
+
+<label>
+    <input type="hidden" name="gledatelj" value="<?php echo $value ?>" />
+</label>
+
+<label>
+    <input type="hidden" name="dogadaj" value="<?php echo $dogadaj ?>" />
+</label>
+
+
+            <input id="sjedalo" type="submit" class="success button" value="<?php echo $key ?>" style="background-color: 
+        <?php if ($value==null) 
+        {
+            echo "#FFFF99";
+            }else {
+                echo "red";
+            }
+            ?>" 
+            />
+</form>
+</div>
+<?php } ?> 
+
+ <?php } ?>
+
+ </div>
+ 

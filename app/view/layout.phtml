@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <?php include_once "head.phtml" ?>
+    <?php echo $head ?>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-x" style="text-align:center;">
+            <div class="large-2 medium-2 columns hide-for-small-only">
+                <a href="<?php echo App::config("url")."index" ?>"><img
+                        src="<?php echo App::config("url")."public/css/logo.svg" ?>" alt="Logo"></a>
+            </div>
+            <div class="large-16 medium-16 small-18 columns" id="center">
+                <h1><?php echo App::config("nazivApp") ?></h1>
+            </div>
+        </div>
+
+        <?php include_once "izbornik.phtml"?>
+        <div class="callout" id="pozadina">
+            <?php echo $content ?>
+        </div>
+
+        <div class="callout" id="footer">
+            &copy; Maja Balaš <?php echo date("Y") ?>
+            <!-- <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+        </div>
+
+
+
+
+    </div>
+
+    <script src="<?php echo App::config("url") ?>public/js/vendor/jquery.js"></script>
+    <script src="<?php echo App::config("url") ?>public/js/vendor/what-input.js"></script>
+    <script src="<?php echo App::config("url") ?>public/js/vendor/foundation.js"></script>
+    <script src="<?php echo App::config("url") ?>public/js/app.js"></script>
+    <?php echo $js ?>
+</body>
+
+</html>

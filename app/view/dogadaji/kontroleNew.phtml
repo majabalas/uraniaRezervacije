@@ -1,0 +1,37 @@
+<label for="vrsta">Vrsta</label>
+  <select name="vrsta" id="vrsta">
+  <option value="odaberi">Odaberi vrstu događaja</option>
+  <option value="stand up">stand up</option>
+  <option value="predstava">predstava</option>
+  <option value="pretpremijera">pretpremijera</option>
+  <option value="projekcija">projekcija</option>
+  <option value="predstava">predstava</option>
+  <option value="koncert">koncert</option>
+  <option value="predavanje">predavanje</option>
+  <option value="najam dvorane">najam dvorane</option>
+  </select>
+
+  <label>Naziv
+    <input type="text" name="naziv"
+    value="<?php echo Request::post("naziv") ?>" />
+  </label>
+
+  <label>Izvođač
+    <input type="text" name="izvodac"
+    value="<?php echo Request::post("izvodac") ?>" />
+  </label>
+
+  <label>Termin
+    <input type="datetime" name="termin" 
+    value="<?php echo Request::post("termin") ?>" />
+  </label>
+
+  <label>Organizator
+    <input type="text" name="organizator"
+    value="<?php echo Request::post("organizator") ?>" />
+  </label>
+
+  <label>Administrator
+    <input type="text" name="administrator"
+    value="<?php echo Request::post("administrator") ?>" />
+  </label>

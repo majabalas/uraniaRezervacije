@@ -1,0 +1,40 @@
+<a href="<?php echo App::config("url") ?>gledatelj/prepareadd" class="success button expanded">
+    Dodaj novog gledatelja
+</a>
+
+<table class="hover">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th class="hide-for-small-only">E-mail</th>
+            <th class="hide-for-small-only">Telefon</th>
+            <th class="hide-for-small-only">Napomena</th>
+            <th>Akcija</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php foreach ($gledatelji as $gledatelj) : ?>
+
+        <tr>
+            <td><?php echo $gledatelj->ime ?></td>
+            <td><?php echo $gledatelj->prezime ?></td>
+            <td class="hide-for-small-only"><?php echo $gledatelj->eMail ?></td>
+            <td class="hide-for-small-only"><?php echo $gledatelj->telefon ?></td>
+            <td class="hide-for-small-only"><?php echo $gledatelj->napomena ?></td>
+            <td><a href="<?php echo App::config("url") ?>gledatelj/prepareedit/<?php echo $gledatelj->sifra ?>">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <a class="trash" href="<?php echo App::config("url") ?>gledatelj/delete/<?php echo $gledatelj->sifra ?>">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+
+    <?php endforeach; ?>
+
+</table>

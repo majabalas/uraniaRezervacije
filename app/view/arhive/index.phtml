@@ -1,0 +1,55 @@
+<a href="<?php echo App::config("url") ?>dogadaj/add" class="success button expanded">
+    Dodaj novi događaj
+</a>
+
+<div class="grid-x">
+    <div class="cell large-16">
+        <form method="post" action="<?php echo App::config("url") ?>arhiva/pretraga/">
+    
+    
+        <input type="text" name="uvjet" value="<?php isset($_GET["uvjet"]) ? $_GET["uvjet"] : ""; ?>" />
+        </div>
+        
+        <div class="cell large-1">
+        <input type="submit" value="Pretraži" class="button" />
+    </div>
+</div>
+</form>
+
+<div class="grid-x">
+    <?php foreach($arhive as $arhiva){
+        if($arhiva->aktivan==true)
+    { ?>
+    
+    <div class="cell large-6">
+        <div class="success callout dogadaji">
+        
+            <img src="<?php 
+      
+            $putanja = file_exists(App::config("path") . "public/css/arhive/" . $arhiva->sifra . ".png") 
+            ?  App::config("url") . "public/css/arhive/" . $arhiva->sifra . ".png" 
+            : App::config("url") . "public/css/arhive/dogadaj.png";
+
+            echo $putanja ?>" alt="" height="300" width="300" />
+            <br />
+            <a href="<?php echo App::config("url")?>sjedalo/index/<?php echo $arhiva->sifra ?>">
+            <?php echo $arhiva->naziv?>
+            <br />
+            <?php echo $arhiva->izvodac?>
+            <br />
+            <?php echo $arhiva->termin?>
+            </a>
+            <hr />
+            <a href="<?php echo App::config("url") ?>sjedalo/index/<?php echo $arhiva->sifra ?>" class="success button expanded">
+            Rezervacije
+        </a>
+        <a href="<?php echo App::config("url") ?>arhiva/vrati/<?php echo $arhiva->sifra ?>" class="alert button expanded">
+            Prebaci u aktualne događaje
+        </a>
+            
+        </div>
+    </div>
+
+    <?php } 
+} ?>
+</div>

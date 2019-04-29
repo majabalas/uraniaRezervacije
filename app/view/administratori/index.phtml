@@ -1,0 +1,32 @@
+<a href="<?php echo App::config("url") ?>administrator/prepareadd" class="success button expanded">
+    Dodaj novog administratora
+</a>
+<table>
+    <thead>
+        <tr>
+            <th>Korisničko ime</th>
+            <th class="hide-for-small-only">E-mail</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <?php foreach ($administratori as $administrator) : ?>
+
+        <tr>
+            <td><?php echo $administrator->korisnickoIme ?></td>
+            <td class="hide-for-small-only"><?php echo $administrator->eMail ?></td>
+            <td><a href="<?php echo App::config("url") ?>administrator/prepareedit/<?php echo $administrator->sifra ?>">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <a class="trash" href="<?php echo App::config("url") ?>administrator/delete/<?php echo $administrator->sifra ?>">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+
+    <?php endforeach; ?>
+
+</table>

@@ -1,0 +1,18 @@
+<form class="log-in-form" method="post" 
+enctype="multipart/form-data"
+action="<?php echo App::config("url") ?>dogadaj/add">
+
+    <?php include_once "kontroleNew.phtml" ?>
+
+    <div class="grid-x">
+        <div class="large-9 columns">
+            <a href="<?php echo App::config("url") ?>dogadaj/index" class="alert button expanded">Odustani</a>
+        </div>
+        <div class="large-9 columns">
+            <input type="submit" class="button expanded" value="Dodaj novi" />
+        </div>
+    </div>
+
+</form>
+
+<?php echo $poruka ?>

@@ -1,0 +1,16 @@
+<form class="log-in-form" method="post" action="<?php echo App::config("url") ?>gledatelj/add">
+
+    <?php include_once "kontrole.phtml" ?>
+
+    <div class="grid-x">
+        <div class="large-9 columns">
+            <a href="<?php echo App::config("url") ?>gledatelj/index" class="alert button expanded">Odustani</a>
+        </div>
+        <div class="large-9 columns">
+            <input type="submit" class="button expanded" value="Dodaj novi" />
+        </div>
+    </div>
+
+</form>
+
+<?php echo $poruka ?>

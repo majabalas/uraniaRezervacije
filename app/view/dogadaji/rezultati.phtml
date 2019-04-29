@@ -1,0 +1,52 @@
+<div class="grid-x">
+    <?php foreach($poruka as $dogadaj){
+        if($dogadaj->aktivan==false)
+    { ?>
+
+    <div class="cell large-6">
+        <div class="success callout dogadaji">
+
+            <img src="<?php 
+      
+            $putanja = file_exists(App::config("path") . "public/css/dogadaji/" . $dogadaj->sifra . ".png") 
+            ?  App::config("url") . "public/css/dogadaji/" . $dogadaj->sifra . ".png" 
+            : App::config("url") . "public/css/dogadaji/dogadaj.png";
+
+            echo $putanja ?>" alt="" />
+            <br />
+            <a href="<?php echo App::config("url")?>sjedalo/index/<?php echo $dogadaj->sifra ?>">
+                <?php echo $dogadaj->naziv?>
+                <br />
+                <?php echo $dogadaj->izvodac?>
+                <br />
+                <?php echo $dogadaj->termin?>
+            </a>
+            <hr />
+            <a href="<?php echo App::config("url") ?>sjedalo/index/<?php echo $dogadaj->sifra ?>"
+                class="alert button expanded">
+                Rezerviraj sjedala
+            </a>
+            <a href="<?php echo App::config("url") ?>dogadaj/arhiva/<?php echo $dogadaj->sifra ?>"
+                class="alert button expanded">
+                Prebaci u arhivu
+            </a>
+            <a href="<?php echo App::config("url") ?>dogadaj/prepareedit/<?php echo $dogadaj->sifra ?>">
+                <i class="fas fa-edit fa-2x"></i>
+            </a>
+            <a style="color: red;" href="<?php echo App::config("url") ?>dogadaj/delete/<?php echo $dogadaj->sifra ?>">
+                <i class="fas fa-trash fa-2x"></i>
+            </a>
+        </div>
+    </div>
+
+    <?php } 
+} ?>
+</div>
+<nav aria-label="Pagination">
+    <ul class="pagination text-center">
+        <li class="pagination-previous"><a href="<?php echo App::config("url") ?>dogadaj/index/<?php echo $prethodna ?>"
+                aria-label="Next page">Prethodna <span class="show-for-sr">page</span></a></li>
+        <li class="pagination-next"><a href="<?php echo App::config("url") ?>dogadaj/index/<?php echo $sljedeca ?>"
+                aria-label="Next page">Sljedeća <span class="show-for-sr">page</span></a></li>
+    </ul>
+</nav>

@@ -1,0 +1,14 @@
+<form class="log-in-form" method="post" action="<?php echo App::config("url")?>admin/login">
+
+    <label>Korisničko ime
+        <input type="text" name="korisnickoIme" placeholder="Info" value="<?php echo Request::post("korisnickoIme"); ?>">
+    </label>
+    <label>Password
+        <input type="password" name="lozinka" placeholder="info" value="<?php echo Request::post("lozinka"); ?>">
+    </label>
+
+    <p><input type="submit" class="button expanded" value="Prijavi se" /></p>
+
+</form>
+
+<?php echo $poruka ?>

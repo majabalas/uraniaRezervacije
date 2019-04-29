@@ -1,0 +1,89 @@
+<?php 
+  $head = "<link rel=\"stylesheet\" href=\"//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css\">";
+
+ $js="
+ <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.js\"></script>
+ <script>
+ var putanja=\"" . APP::config("url") .  "\";
+ </script>
+ <script src=\"" . APP::config("url") . "public/js/sjedala/edit.js\"></script>";
+?>
+
+<?php if(Request::post("gledatelj")<=0): ?>
+
+<form class="log-in-form" method="post"
+    action="<?php echo App::config("url") ?>sjedalo/edit/">
+
+    <div class="grid-x">
+        <form action="">
+            <div class="large-14 columns">
+                <input type="text" name="uvjetIme" value=""/>
+            </div>
+            <div class="large-4 columns">
+                <input type="submit" value="Pretraži ime" class="button" />
+            </div>
+        </form>
+    
+        <form action="">
+            <div class="large-14 columns">
+                <input type="text" name="uvjetPrezime" value=""/>
+            </div>
+            <div class="large-4 columns">
+                <input type="submit" value="Pretraži prezime" class="button" />
+            </div>
+        </form>
+    </div>
+</form>
+
+<a href="<?php echo App::config("url") ?>gledatelj/prepareadd" class="success button expanded">
+    Dodaj novog gledatelja
+</a>
+
+<form class="log-in-form" method="post" action="<?php echo App::config("url") ?>gledatelj/add">
+
+    
+
+    <div class="grid-x">
+        <div class="large-9 columns">
+            <a href="<?php echo App::config("url") ?>sjedalo/index" class="alert button expanded">Odustani</a>
+        </div>
+        <div class="large-9 columns">
+            <input type="submit" class="button expanded" value="Dodaj novi" />
+        </div>
+    </div>
+
+</form>
+
+<?php echo $poruka ?>
+
+<?php endif; ?>
+
+<?php if(Request::post("gledatelj")>0): ?>
+
+<form class="log-in-form" method="post"
+    action="<?php echo App::config("url") ?>sjedalo/editKomentar/">
+ 
+    <?php include_once "kontroleKomentar.phtml" ?>
+ 
+    <div class="grid-x">
+        <div class="large-6 columns">
+            <a href="<?php echo App::config("url") ?>sjedalo/index" style="background-color:#ff6600" class="alert button expanded">
+                Odustani
+            </a>
+        </div>
+
+        <div class="large-6 columns">
+        <input type="submit" class="success button expanded" value="Dodaj komentar rezervaciji" />
+        </div>
+
+        <div class="large-6 columns">
+        <a href="<?php echo App::config("url") ?>sjedalo/delete/<?php echo Request::post("sifra") ?>" style="background-color:red" class="success button expanded">
+                Obriši rezervaciju
+            </a>
+        </div>
+    </div>
+
+</form>
+<?php echo $poruka ?>s
+
+<?php endif; ?>
